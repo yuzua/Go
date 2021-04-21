@@ -15,12 +15,12 @@
 - 例外処理がない
 - コードの継承がない(オブジェクト指向言語ではなく関数型プログラム言語)
 
-#ビルド実行コマンド
+# ビルド実行コマンド
 
 - go build ファイル名.go → .\ファイル名(go build でできたファイル)
 - go run ファイル名.go(デバック時に使用)
 
-#データ型
+# データ型
 
 - 論理値型(bool) True か False どちらかの値を取る
 - 整数型(int32(+) uint32(-)) 整数を保存するために使用
@@ -37,16 +37,52 @@
 - チャンネル型 並列処理で使用
 - 型の変換
 
-#変数と定数
+# 変数と定数
 
 - 変数定義 var 変数名 型 (文字の場合は配列として扱われる)
 - 変数定義の省略 変数名 =: 値
 - 定数の定義 const 定数名 = 値
 
-#演算子
+# 演算子
 
 - 単項演算子　++や--は 1 つのステートメントとして扱う
   ```Go:ステートメント
   a++
   c = a //c = a++ はエラー
   ```
+
+# コンソール入力
+
+- fmt.Println() 出力して改行
+
+```Go:fmt.Println
+var name string = "sampleくん"
+fmt.Println("こんにちは", name, "。")
+```
+
+- fmt.Printf() 出力する書式を指定
+
+```GO:fmt.Printf
+var r rune='ゆ'
+fmt.Printf("%d %x %f %s", r, r, r, r)
+```
+
+- fmt.Scan() キーボードからの入力を変数に格納
+
+```GO:fmt.Scan()
+var name string
+fmt.Printf("Name:")
+fmt.Scan(&name)
+fmt.Printf("Hello,%s!", name)
+```
+
+- fmt.Scanf() 書式を指定してキーボードからの入力を変数に格納
+
+```Go:fmt.Scanf()
+~
+fmt.Scanf("%d %d", &n, &m)
+fmt.Printf("%dと%dの合計は%d\n", n, m, n+m)
+```
+
+- スキャナー 別ファイルからの入力を受け付ける
+  scanner.go 参照
