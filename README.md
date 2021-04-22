@@ -17,8 +17,8 @@
 
 # ビルド実行コマンド
 
-- go build ファイル名.go → .\ファイル名(go build でできたファイル)
-- go run ファイル名.go(デバック時に使用)
+- $go build ファイル名.go → .\ファイル名(go build でできたファイル)
+- $go run ファイル名.go(デバック時に使用)
 
 # データ型
 
@@ -86,3 +86,21 @@ fmt.Printf("%dと%dの合計は%d\n", n, m, n+m)
 
 - スキャナー 別ファイルからの入力を受け付ける
   scanner.go 参照
+
+# 条件分岐
+
+- if 文 if.go 参照
+- switch 文 switch.go 参照
+- 無条件分岐 無条件に指定したラベルの場所にジャンプ(使わないほうがいいらしい)
+
+```GO:go to文
+LOOP:
+if n > 5{
+  goto LOOPEND
+}
+```
+
+# 繰り返し
+
+- for 文 for.go 参照
+- for ‥ range 文 range.go 参照
