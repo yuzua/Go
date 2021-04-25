@@ -7,6 +7,7 @@ func main() {
     // 普通のforの繰り返し
     for i := 0; i < 10; i++ {
         if i == 3 {
+            //continue 処理を飛ばし繰り返し
             continue
         } else if i == 8 {
             break
