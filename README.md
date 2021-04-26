@@ -104,3 +104,48 @@ if n > 5{
 
 - for 文 for.go 参照
 - for ‥ range 文 range.go 参照
+
+# 配列
+
+- 配列の個数が足りない時、0 で補われる
+
+```Go:配列
+//配列の宣言 var name [size]type
+var a [5]int = [5]int{1, 3, 5, 7, 9}
+//配列の個数が未定の場合
+b := [...]int{2, 4, 5, 6, 7}
+```
+
+# スライス
+
+- 配列の 1 部又は全部を指し示す参照型データ 特殊な挙動は sliceprac.go 参照
+
+```Go:スライス
+//var name = []type{}
+var c = a[0:3]
+```
+
+- make() スライスの作成(あんまり使わない)
+
+```Go:make()
+//make([]type, length, capacity)
+var d = make([]int, 5, 20)
+```
+
+- cap() スライスの容量を調べる(保存できる要素数である容量)
+
+```Go:cap()
+fmt.Println(cap(a))
+```
+
+- len() サイズを調べる(保存されている要素数である要素数)
+
+```Go:len()
+fmt.Println(len(a))
+```
+
+- copy() スライスの要素を別のスライスにコピーする
+
+```Go:copy()
+copy(c, d)
+```
