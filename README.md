@@ -1,4 +1,4 @@
-# go_practice
+# Go
 
 #Go 言語の特徴
 **メリット**
