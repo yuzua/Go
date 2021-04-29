@@ -31,9 +31,9 @@
 - スライス型 配列内の連続した領域への参照
 - 構造体型 フィールドと呼ばれる要素の集まり
 - ポインター型(\*int) メモリ上のオブジェクトを指し示す値
-- 関数型　呼出可能な一連のプログラミングコード
+- 関数型 呼出可能な一連のプログラミングコード
 - インターフェース型 実行されるコードがない関数
-- マップ型　キーと値を持つ値
+- マップ型 キーと値を持つ値
 - チャンネル型 並列処理で使用
 - 型の変換
 
@@ -45,10 +45,10 @@
 
 # 演算子
 
-- 単項演算子　++や--は 1 つのステートメントとして扱う
+- 単項演算子 ++や--は 1 つのステートメントとして扱う
   ```Go:ステートメント
   a++
-  c = a //c = a++ はエラー
+  c = a // c = a++ はエラー
   ```
 
 # コンソール入力
@@ -110,9 +110,9 @@ if n > 5{
 - 配列の個数が足りない時、0 で補われる
 
 ```Go:配列
-//配列の宣言 var name [size]type
+// 配列の宣言 var name [size]type
 var a [5]int = [5]int{1, 3, 5, 7, 9}
-//配列の個数が未定の場合
+// 配列の個数が未定の場合
 b := [...]int{2, 4, 5, 6, 7}
 ```
 
@@ -121,14 +121,14 @@ b := [...]int{2, 4, 5, 6, 7}
 - 配列の 1 部又は全部を指し示す参照型データ 特殊な挙動は sliceprac.go 参照
 
 ```Go:スライス
-//var name = []type{}
+// var name = []type{}
 var c = a[0:3]
 ```
 
 - make() スライスの作成(あんまり使わない)
 
 ```Go:make()
-//make([]type, length, capacity)
+// make([]type, length, capacity)
 var d = make([]int, 5, 20)
 ```
 
@@ -149,3 +149,53 @@ fmt.Println(len(a))
 ```Go:copy()
 copy(c, d)
 ```
+
+# マップ
+* キーと値のペアを複数保存する構造
+```Go:マップ
+// map [keytype] type
+m := map[string]int{"sample": 100, "test": 200} // map[sample:100 test:200]
+// キーの存在を調べる
+v, ok := m["sample"]
+```
+* make() マップの作成(使わない)
+```Go:make()
+var m2 = make(map[string]int)
+// 要素追加後自動的にソートされる
+m2["sample"] = 20
+m2["sample2"] = 21
+m2["sample"] = 24
+```
+* delete() 指定したキーの要素を削除
+```Go:delete()
+delete(m, "sample")
+```
+
+# 構造体
+* 複数の値を意味のあるまとまりとして新しい型を定義する事ができる
+```Go:構造体
+// 構造体を定義(先頭を大文字にすると他のパッケージからアクセス可能)
+type User struct {
+    // フィールド
+    Name  string
+    Score int
+}
+```
+
+* new() newで構造体分の領域を確保して、初期化して、そのポインタを返す
+```Go:new()
+func main(){
+  var u1 = new(User)
+  // 構造体の値にデータをセット パターン1
+  *u1 = User("sample", 100)
+  // パターン2
+  u1.Name = "sample2"
+  u1.Score = 200
+  // パターン3
+  var u1 [3]User = [3]User{
+    User{"sample3", 150},
+    User{"sample4", 230},
+    User["sample5", 50],
+  } 
+```
+* 構造体をもつ構造体 JAVAの継承の様なもの embedding.goを参照
