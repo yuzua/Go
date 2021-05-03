@@ -13,7 +13,7 @@ func main() {
 	 fmt.Printf("%T\n",i) // float64
 	 i = "hello"
 	 fmt.Printf("%T\n",i) // string
-	 // 型の調べ方 i.(type)
+	 // interface型の調べ方 i.(type)
 	 // 使い方
 	switch i.(type) {
 	case string:
