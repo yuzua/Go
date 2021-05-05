@@ -7,6 +7,9 @@ import (
 func wasa(a, b int) (int, int){
 	wa := a + b
 	sa := a - b
+	if sa < 0 {
+		sa *= -1
+	}
 	return wa, sa
 }
 
