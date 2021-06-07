@@ -198,4 +198,20 @@ func main(){
     User["sample5", 50],
   } 
 ```
+
 * 構造体をもつ構造体 JAVAの継承の様なもの embedding.goを参照
+
+# 関数
+* math,string,timeパッケージに関するもの func.go参考
+* 関数の定義
+```Go:関数の定義
+func name(n int) int{
+  return 2 * n
+}
+```
+* 複数の値を返す関数
+```Go:複数の値を返す関数
+func name(n int) (int, int){
+  
+}
+```
