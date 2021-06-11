@@ -151,14 +151,18 @@ copy(c, d)
 ```
 
 # マップ
-* キーと値のペアを複数保存する構造
+
+- キーと値のペアを複数保存する構造
+
 ```Go:マップ
 // map [keytype] type
 m := map[string]int{"sample": 100, "test": 200} // map[sample:100 test:200]
 // キーの存在を調べる
 v, ok := m["sample"]
 ```
-* make() マップの作成(使わない)
+
+- make() マップの作成(使わない)
+
 ```Go:make()
 var m2 = make(map[string]int)
 // 要素追加後自動的にソートされる
@@ -166,13 +170,17 @@ m2["sample"] = 20
 m2["sample2"] = 21
 m2["sample"] = 24
 ```
-* delete() 指定したキーの要素を削除
+
+- delete() 指定したキーの要素を削除
+
 ```Go:delete()
 delete(m, "sample")
 ```
 
 # 構造体
-* 複数の値を意味のあるまとまりとして新しい型を定義する事ができる
+
+- 複数の値を意味のあるまとまりとして新しい型を定義する事ができる
+
 ```Go:構造体
 // 構造体を定義(先頭を大文字にすると他のパッケージからアクセス可能)
 type User struct {
@@ -182,7 +190,8 @@ type User struct {
 }
 ```
 
-* new() newで構造体分の領域を確保して、初期化して、そのポインタを返す
+- new() new で構造体分の領域を確保して、初期化して、そのポインタを返す
+
 ```Go:new()
 func main(){
   var u1 = new(User)
@@ -196,22 +205,43 @@ func main(){
     User{"sample3", 150},
     User{"sample4", 230},
     User["sample5", 50],
-  } 
+  }
 ```
 
-* 構造体をもつ構造体 JAVAの継承の様なもの embedding.goを参照
+- 構造体をもつ構造体 JAVA の継承の様なもの embedding.go を参照
 
 # 関数
-* math,string,timeパッケージに関するもの func.go参考
-* 関数の定義
+
+- math,string,time パッケージに関するもの func.go 参考
+- 関数の定義
+
 ```Go:関数の定義
 func name(n int) int{
   return 2 * n
 }
 ```
-* 複数の値を返す関数
+
+- 複数の値を返す関数
+
 ```Go:複数の値を返す関数
 func name(n int) (int, int){
-  
+
+}
+```
+
+# メソッド
+
+- 構造体に結び付いた関数 ※関数の中で構造体の領域を確保しなくてよい( var u1 = new(User)みたいなもの)
+
+```Go:メソッド
+type Square struct { // メソッドを使う場合は、レシーバー変数が必要
+    X, Y int
+}
+func (s *Square) Area() int {　// func レシーバー変数 関数名 型
+    return s.X * s.Y
+}
+func main() {
+    s := Square{5, 5}
+    fmt.Println(s.Area())  // >>25
 }
 ```
