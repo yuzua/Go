@@ -237,7 +237,7 @@ func name(n int) (int, int){
 type Square struct { // メソッドを使う場合は、レシーバー変数が必要
     X, Y int
 }
-func (s *Square) Area() int {　// func レシーバー変数 関数名 型
+func (s *Square) Area() int { // func レシーバー変数 関数名 型
     return s.X * s.Y
 }
 func main() {
